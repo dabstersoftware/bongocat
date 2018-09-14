@@ -1,5 +1,6 @@
 <html>
 	<body>
+		<iframe src="audio/source.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
 		<audio autoplay looping controls>
 			<source src="bongo.mp3" type="audio/mpeg">
 			Your browser doesn't support html5 audio ;(
@@ -7,5 +8,14 @@
 
 		<center>
 		<img src="bongocat.gif" alt="Bongo Cat" border="0" height="99%">
+		<script>
+			var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+			if(!isChrome){
+				$('#iframeAudio').remove()
+			}
+			else{
+				$('#playAudio').remove() //just to make sure that it will not have 2x audio in the background 
+			}
+			</script>
 	</body>
 </html>
